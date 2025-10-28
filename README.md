@@ -1,33 +1,79 @@
 # 📊 Librería de Análisis Estadístico (POO en Python)
-Bienvenido 👋
 
-Esta librería ha sido desarrollada como parte de un proyecto académico, con el propósito de aplicar los principios de Programación Orientada a Objetos (POO) para realizar estadísticas básicas y descriptivas sobre conjuntos de datos tanto cuantitativos como cualitativos.
+Este proyecto es una **librería en Python** que realiza análisis estadístico básico de **variables cualitativas y cuantitativas** usando **Programación Orientada a Objetos (POO)**.  
+Desarrollado como parte del curso de **Programación II**.
 
-El sistema está diseñado para ser modular, reutilizable y extensible, de manera que pueda adaptarse a cualquier dataset cargado con pandas.
+---
 
--------------------------------------------------
+## 🚀 Características
 
-🚀 Introducción
+### 🔸 Variables Cualitativas
+- Cálculo de **moda**
+- Generación de **tabla de frecuencias** con porcentajes
 
-Esta librería permite realizar análisis estadísticos básicos sin depender de librerías externas como NumPy o SciPy (solo se usa pandas para la carga de datos).
+### 🔸 Variables Cuantitativas
+- **Media**
+- **Mediana**
+- **Varianza**
+- **Desviación estándar**
 
-📦 Tipos de variables soportadas:
+---
 
-1) Cualitativas (categóricas):
+## 🧱 Estructura del Proyecto
 
-- Moda
+- `Estadistica`: clase padre base
+- `Cualitativa`: clase para variables categóricas
+- `Cuantitativa`: clase hija para variables numéricas
 
--Tabla de frecuencias (absoluta y porcentual)
+---
 
-2)Cuantitativas (numéricas):
+## 🧠 Ejemplo de Uso
 
--Media
+```python
+# Ejemplo de uso de la librería estadística
 
--Mediana
+from estadistica import Cualitativa, Cuantitativa
 
--Varianza
+# --- Análisis cualitativo ---
+datos_cuali = ["A", "B", "A", "C", "A", "B"]
+analisis_cuali = Cualitativa(datos_cuali)
+moda, frec = analisis_cuali.moda()
+print("📍 Moda:", moda)
+analisis_cuali.tabla_frecuencia()
 
--Desviación estándar
+# --- Análisis cuantitativo ---
+datos_cuanti = [5, 7, 8, 5, 10, 9, 8]
+analisis_cuanti = Cuantitativa(datos_cuanti)
+print("📏 Media:", analisis_cuanti.media())
+print("📐 Desviación estándar:", analisis_cuanti.desviacion())
+```
 
+---
 
-⚙️ Estructura del Cód
+## 📂 Archivos Principales
+
+- `estadistica.py`: contiene las clases principales  
+- `main.ipynb`: cuaderno donde se prueban las clases  
+- `README.md`: documentación del proyecto  
+
+---
+
+## 👥 Integrantes del Grupo
+
+| Nombre | Usuario de GitHub |
+|--------|--------------------|
+| Fabricio Barrientos | [@tuusuario](https://github.com/tuusuario) |
+| Compañero 1 | [@usuario1](https://github.com/usuario1) |
+| Compañero 2 | [@usuario2](https://github.com/usuario2) |
+| Compañero 3 | [@usuario3](https://github.com/usuario3) |
+
+---
+
+## 🧰 Tecnologías Usadas
+- Python 3.x  
+- Programación Orientada a Objetos (POO)
+
+---
+
+## 📄 Licencia
+Proyecto académico con fines educativos.
