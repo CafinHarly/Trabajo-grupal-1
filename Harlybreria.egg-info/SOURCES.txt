@@ -1,0 +1,8 @@
+Harlybreria.py
+README.md
+setup.py
+Harlybreria.egg-info/PKG-INFO
+Harlybreria.egg-info/SOURCES.txt
+Harlybreria.egg-info/dependency_links.txt
+Harlybreria.egg-info/requires.txt
+Harlybreria.egg-info/top_level.txt
