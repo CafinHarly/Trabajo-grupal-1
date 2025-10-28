@@ -64,8 +64,8 @@ print("📐 Desviación estándar:", analisis_cuanti.desviacion())
 |--------|--------------------|
 | Fabricio Barrientos | [@fabriciobarrientos26](https://github.com/fabriciobarrientos26) |
 | Harley Puma | [@CafinHarly](https://github.com/CafinHarly) |
-| Megumi-cpu | [@usuario3](https://github.com/usuario2) |
-| RaulAM22 | [@usuario3](https://github.com/usuario3) |
+| Maria Montero | [@usuario3](https://github.com/usuario2) |
+| Raul Anton | [@usuario3](https://github.com/usuario3) |
 
 ---
 
