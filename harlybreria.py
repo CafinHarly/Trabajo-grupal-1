@@ -66,11 +66,18 @@ class Cuantitativa(VariableEstadistica):
         return outliers
 
     def graficar(self):
+        #Histograma
         plt.figure(figsize=(6,4))
         plt.hist(self.datos, bins=10, edgecolor='black')
         plt.title(f"Histograma de {self.columna}")
         plt.xlabel(self.columna)
         plt.ylabel("Frecuencia")
+        plt.show()
+        #Boxplot
+        plt.figure(figsize=(6,4))
+        plt.boxplot(self.datos)
+        plt.title(f"Boxplot de {self.columna}")
+        plt.ylabel(self.columna)
         plt.show()
 
     def resumen(self):
@@ -119,4 +126,13 @@ class Cualitativa(VariableEstadistica):
         for valor, frec in tabla.items():
             porcentaje = round((frec / total) * 100, 2)
             print(f"{valor}\t\t{frec}\t\t{porcentaje}%")
+    
+    def graficar(self):
+        tabla = pd.Series(self.datos).value_counts()
+        plt.figure(figsize=(6,4))
+        tabla.plot(kind='bar')
+        plt.title(f"Distribución de {self.columna}")
+        plt.ylabel("Frecuencia")
+        plt.xlabel("Categorías")
+        plt.show() 
             
