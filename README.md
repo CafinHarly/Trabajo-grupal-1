@@ -70,7 +70,7 @@ print("📐 Desviación estándar:", analisis_cuanti.desviacion())
 ---
 
 ## 🧰 Tecnologías Usadas
-- Python 3.x  
+- Python 3
 - Programación Orientada a Objetos (POO)
 
 ---
