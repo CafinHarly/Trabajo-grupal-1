@@ -7,6 +7,8 @@ df = pd.read_csv(url)
 
 analisis_cuanti = Cuantitativa(df, "esperanza_de_vida")
 analisis_cuanti.resumen()
+analisis_cuanti.graficar()
 
 analisis_cuali = Cualitativa(df, "continente")
 analisis_cuali.tabla_frecuencia()
+analisis_cuali.graficar()
