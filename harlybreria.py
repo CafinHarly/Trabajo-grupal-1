@@ -55,6 +55,15 @@ class Cuantitativa(VariableEstadistica):
             return datos_ordenados[f] + c * (datos_ordenados[f + 1] - datos_ordenados[f])
         else:
             return datos_ordenados[f]
+    
+    def outliers(self):
+        q1, q3 = self.percentiles(25), self.percentiles(75)
+        iqr = q3 - q1
+        limite_inferior = q1 - 1.5 * iqr
+        limite_superior = q3 + 1.5 * iqr
+        outliers = [x for x in self.datos if x < limite_inferior or x > limite_superior]
+        return outliers
+
 
     def resumen(self):
         print(f"\n📈 Estadísticas descriptivas para '{self.columna}':")
@@ -63,8 +72,10 @@ class Cuantitativa(VariableEstadistica):
         print(f"Varianza: {round(self.varianza(),2)}")
         print(f"Desviación estándar: {round(self.desviacion_estandar(),2)}")
         print(f"Rango: {round(self.rango(),2)}")
+        print(f"N° de valores atípicos: {len(self.outliers())}")
         print(f"Percentil 25: {round(self.percentiles(25),2)}")
         print(f"Percentil 75: {round(self.percentiles(75),2)}")
+        
         
     def generar_reporte(self, nombre_archivo="reporte.txt"):
         with open(nombre_archivo, "w", encoding="utf-8") as f:
