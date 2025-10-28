@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 # ----------------------------- #
 # 🧩 CLASE PADRE
 # ----------------------------- #
@@ -64,6 +65,13 @@ class Cuantitativa(VariableEstadistica):
         outliers = [x for x in self.datos if x < limite_inferior or x > limite_superior]
         return outliers
 
+    def graficar(self):
+        plt.figure(figsize=(6,4))
+        plt.hist(self.datos, bins=10, edgecolor='black')
+        plt.title(f"Histograma de {self.columna}")
+        plt.xlabel(self.columna)
+        plt.ylabel("Frecuencia")
+        plt.show()
 
     def resumen(self):
         print(f"\n📈 Estadísticas descriptivas para '{self.columna}':")
