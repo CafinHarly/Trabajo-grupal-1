@@ -62,10 +62,10 @@ print("📐 Desviación estándar:", analisis_cuanti.desviacion())
 
 | Nombre | Usuario de GitHub |
 |--------|--------------------|
-| Fabricio Barrientos | [@tuusuario](https://github.com/tuusuario) |
-| Compañero 1 | [@usuario1](https://github.com/usuario1) |
-| Compañero 2 | [@usuario2](https://github.com/usuario2) |
-| Compañero 3 | [@usuario3](https://github.com/usuario3) |
+| fabriciobarrientos26 | [@tuusuario](https://github.com/tuusuario) |
+| CafinHarly | [@usuario1](https://github.com/usuario1) |
+| Megumi-cpu | [@usuario2](https://github.com/usuario2) |
+| RaulAM22 | [@usuario3](https://github.com/usuario3) |
 
 ---
 
