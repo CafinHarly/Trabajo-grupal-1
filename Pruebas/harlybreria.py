@@ -135,4 +135,23 @@ class Cualitativa(VariableEstadistica):
         plt.ylabel("Frecuencia")
         plt.xlabel("Categorías")
         plt.show() 
-            
+
+
+def menu(df):
+    cuantis = df.select_dtypes(include=['float64', 'int64']).columns.tolist() #Filtra los nombres de las columnas con variables cuantitativas
+    cualis = df.select_dtypes(include=['object', 'category']).columns.tolist() #Filtra los nombres de las columnas con variables cualitativas
+
+    print("Variables cuantitativas:", cuantis)
+    print("Variables cualitativas:", cualis)
+    tipo = input("¿Qué tipo de variable deseas analizar? (cuantitativa/cualitativa): ")
+    col = input("Escribe el nombre de la columna: ")
+    if tipo == "cuantitativa":
+        analisis_cuanti = Cuantitativa(df, col)
+        analisis_cuanti.resumen()
+        analisis_cuanti.graficar()
+    elif tipo == "cualitativa":
+        analisis_cuali = Cualitativa(df, col)
+        analisis_cuali.tabla_frecuencia()
+        analisis_cuali.graficar()
+    else:
+        print(" Tipo inválido.")          
