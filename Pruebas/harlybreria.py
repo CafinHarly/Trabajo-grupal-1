@@ -117,15 +117,24 @@ class Cualitativa(VariableEstadistica):
 
 
     def tabla_frecuencia(self):
-        tabla = {}
-        for valor in self.datos:
-            tabla[valor] = tabla.get(valor, 0) + 1
+        tabla = pd.Series(self.datos).value_counts()
         total = len(self.datos)
-        print(f"\n📊 Tabla de frecuencias para '{self.columna}':")
-        print("Valor\t\tFrecuencia\tPorcentaje")
-        for valor, frec in tabla.items():
-            porcentaje = round((frec / total) * 100, 2)
-            print(f"{valor}\t\t{frec}\t\t{porcentaje}%")
+
+        df_freq = pd.DataFrame({
+            "Frecuencia": tabla,
+            "Frecuencia Relativa": round(tabla / total, 3),
+            "Frecuencia Acumulada": round((tabla / total).cumsum(), 3)
+        })
+
+        print(f"\n📊 Tabla de frecuencias para '{self.columna}':\n")
+        print(df_freq)
+
+        moda, frec_moda = self.moda()
+        print("\n🔹 Moda:")
+        if moda is None:
+            print(" → No hay moda (todas las frecuencias son iguales)")
+        else:
+            print(f" → {moda} (frecuencia: {frec_moda})")
     
     def graficar(self):
         tabla = pd.Series(self.datos).value_counts()
@@ -154,4 +163,4 @@ def menu(df):
         analisis_cuali.tabla_frecuencia()
         analisis_cuali.graficar()
     else:
-        print(" Tipo inválido.")          
+        print(" Tipo inválido.")          
