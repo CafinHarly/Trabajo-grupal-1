@@ -80,6 +80,13 @@ class Cuantitativa(VariableEstadistica):
         plt.ylabel(self.columna)
         plt.show()
 
+    def matriz_correlacion(self):
+        print("\n Matriz de correlaciones entre variables cuantitativas:\n")
+        df_num = self.df.select_dtypes(include=['float64', 'int64'])
+        df_num = df_num.loc[:, df_num.apply(lambda x: x.nunique() > 1)]
+        corr = df_num.corr()
+        print(corr.round(3)) 
+
     def resumen(self):
         print(f"\n📈 Estadísticas descriptivas para '{self.columna}':")
         print(f"Media: {round(self.media(),2)}")
@@ -90,7 +97,8 @@ class Cuantitativa(VariableEstadistica):
         print(f"N° de valores atípicos: {len(self.outliers())}")
         print(f"Percentil 25: {round(self.percentiles(25),2)}")
         print(f"Percentil 75: {round(self.percentiles(75),2)}")
-        
+        print(f"Cantidad de datos: {self.cantidad()}\n")
+        print
         
     def generar_reporte(self, nombre_archivo="reporte.txt"):
         with open(nombre_archivo, "w", encoding="utf-8") as f:
@@ -98,6 +106,13 @@ class Cuantitativa(VariableEstadistica):
             f.write(f"Cantidad de datos: {self.cantidad()}\n")
             f.write(f"Media: {round(self.media(),2)}\n")
             f.write(f"Mediana: {round(self.mediana(),2)}\n")
+            f.write(f"Varianza: {round(self.varianza(),2)}")
+            f.write(f"Desviación estándar: {round(self.desviacion_estandar(),2)}\n")
+            f.write(f"Rango: {round(self.rango(),2)}\n")
+            f.write(f"N° de valores atípicos: {len(self.outliers())}\n")
+            f.write(f"Percentil 25: {round(self.percentiles(25),2)}\n")
+            f.write(f"Percentil 75: {round(self.percentiles(75),2)}\n")
+        print(f"Reporte guardado en '{nombre_archivo}'")
     
 # ----------------------------- #
 # 🟢 CLASE HIJA: CUALITATIVA
@@ -158,6 +173,8 @@ def menu(df):
         analisis_cuanti = Cuantitativa(df, col)
         analisis_cuanti.resumen()
         analisis_cuanti.graficar()
+        analisis_cuanti.generar_reporte()
+        analisis_cuanti.matriz_correlacion()
     elif tipo == "cualitativa":
         analisis_cuali = Cualitativa(df, col)
         analisis_cuali.tabla_frecuencia()
