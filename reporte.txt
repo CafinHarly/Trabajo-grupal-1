@@ -2,8 +2,15 @@ Análisis de la variable: poblacion
 Cantidad de datos: 142
 Media: 18763412.54
 Mediana: 4282942.0
-Varianza: 4260594436118375.5Desviación estándar: 65273229.09
+Varianza: 4260594436118375.5
+Desviación estándar: 65273229.09
 Rango: 637346675
 N° de valores atípicos: 23
 Percentil 25: 1568811.25
 Percentil 75: 9817598.0
+Matriz de correlaciones entre variables cuantitativas:
+                   anio  esperanza_de_vida  poblacion  pib_per_capita
+anio                NaN                NaN        NaN             NaN
+esperanza_de_vida   NaN           1.000000   0.014493        0.303745
+poblacion           NaN           0.014493   1.000000       -0.028073
+pib_per_capita      NaN           0.303745  -0.028073        1.000000

@@ -107,12 +107,18 @@ class Cuantitativa(VariableEstadistica):
             f.write(f"Cantidad de datos: {self.cantidad()}\n")
             f.write(f"Media: {round(self.media(),2)}\n")
             f.write(f"Mediana: {round(self.mediana(),2)}\n")
-            f.write(f"Varianza: {round(self.varianza(),2)}")
+            f.write(f"Varianza: {round(self.varianza(),2)}\n")
             f.write(f"Desviación estándar: {round(self.desviacion_estandar(),2)}\n")
             f.write(f"Rango: {round(self.rango(),2)}\n")
             f.write(f"N° de valores atípicos: {len(self.outliers())}\n")
             f.write(f"Percentil 25: {round(self.percentiles(25),2)}\n")
             f.write(f"Percentil 75: {round(self.percentiles(75),2)}\n")
+            #Para la matriz de correlación
+            df_num = self.df.loc[:, ~self.df.columns.str.contains("^Unnamed")]
+            corr = df_num.corr(numeric_only=True)
+            f.write("Matriz de correlaciones entre variables cuantitativas:\n")
+            f.write(corr.to_string())  
+            f.write("\n")
         print(f"Reporte guardado en '{nombre_archivo}'")
     
 # ----------------------------- #
