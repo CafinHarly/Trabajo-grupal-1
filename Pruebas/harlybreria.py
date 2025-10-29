@@ -82,10 +82,11 @@ class Cuantitativa(VariableEstadistica):
 
     def matriz_correlacion(self):
         print("\n Matriz de correlaciones entre variables cuantitativas:\n")
-        df_num = self.df.select_dtypes(include=['float64', 'int64'])
+        df_num = self.df.select_dtypes(include=['float64', 'int64']).copy()
+        df_num = df_num.loc[:, ~df_num.columns.str.contains("Unnamed")]
         df_num = df_num.loc[:, df_num.apply(lambda x: x.nunique() > 1)]
         corr = df_num.corr()
-        print(corr.round(3)) 
+        print(corr.round(3))
 
     def resumen(self):
         print(f"\n📈 Estadísticas descriptivas para '{self.columna}':")

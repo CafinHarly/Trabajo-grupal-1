@@ -1,9 +1,9 @@
-Análisis de la variable: esperanza_de_vida
+Análisis de la variable: poblacion
 Cantidad de datos: 142
-Media: 51.51
-Mediana: 48.36
-Varianza: 148.55Desviación estándar: 12.19
-Rango: 43.14
-N° de valores atípicos: 0
-Percentil 25: 41.25
-Percentil 75: 63.04
+Media: 18763412.54
+Mediana: 4282942.0
+Varianza: 4260594436118375.5Desviación estándar: 65273229.09
+Rango: 637346675
+N° de valores atípicos: 23
+Percentil 25: 1568811.25
+Percentil 75: 9817598.0
