@@ -47,7 +47,8 @@ analisis_cuanti = Cuantitativa(datos_cuanti)
 print("📏 Media:", analisis_cuanti.media())
 print("📐 Desviación estándar:", analisis_cuanti.desviacion())
 ```
-
+##Uso de la librería
+- Para el uso correcto de nuestra librería, esta se debe instalar a través de una terminal con el comando  `pip install -e .`, con esta acción realizada se podrá utilizar como se ve en el archivo Harlyprueba.py
 ---
 
 ## 📂 Archivos Principales
