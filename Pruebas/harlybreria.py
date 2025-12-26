@@ -125,8 +125,6 @@ class Cuantitativa(VariableEstadistica):
 # 🟢 CLASE HIJA: CUALITATIVA
 # ----------------------------- #
 class Cualitativa(VariableEstadistica):
-
-
     def moda(self):
         max_frec = 0
         moda = None
